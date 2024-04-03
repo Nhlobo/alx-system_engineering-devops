@@ -6,8 +6,8 @@ sudo apt update -y
 sudo apt-get install -y haproxy=2.2.\*
 
 # configure HAProxy
-WEB01="100.26.162.184 "
-WEB02="100.26.132.146"
+WEB01="18.235.248.159"
+WEB02="100.25.117.185"
 CONFIG=\
 "
 frontend http
