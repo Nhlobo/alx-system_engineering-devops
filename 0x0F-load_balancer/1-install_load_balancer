@@ -6,7 +6,7 @@ sudo apt update -y
 sudo apt-get install -y haproxy=2.2.\*
 
 # configure HAProxy
-WEB01="100.26.136.64"
+WEB01="100.26.162.184 "
 WEB02="100.26.132.146"
 CONFIG=\
 "
