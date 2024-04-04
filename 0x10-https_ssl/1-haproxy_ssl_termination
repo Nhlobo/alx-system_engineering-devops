@@ -35,5 +35,5 @@ frontend captressketh-tech-backend
 
 backend captressketh-tech-backend
     balance roundrobin
-    server 123901-web-01 18.235.248.159 check
-    server 123901-web-02 100.25.117.185 check
+    server 467595-web-01 18.235.248.159 check
+    server 467595-web-02 100.25.117.185 check
