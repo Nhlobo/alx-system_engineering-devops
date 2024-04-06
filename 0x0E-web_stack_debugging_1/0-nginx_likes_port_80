@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
-# Installs Nginx with the following configurations:
-# fixed: Listens on port 80.
-cd /etc/nginx/sites-enabled || exit;
+# nginx server configuration to listen on port 80
 
-# delete the default file
-rm default;
-
-# create symbolic link to the default file in sites-available
-ln -s /etc/nginx/sites-available/default default;
-
-# restart nginx
-service nginx restart;
+# remove default nginx file config
+rm /etc/nginx/sites-enabled/default
+# nginx config  to listen on port 80 for ll IPV4 Ips
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# nginx start
+service nginx restart
