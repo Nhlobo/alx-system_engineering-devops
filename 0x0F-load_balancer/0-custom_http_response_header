@@ -2,8 +2,6 @@
 #Double the number of webservers
 sudo apt-get -y update
 sudo apt-get -y install nginx
-# adding the custom header
-sudo sed -i "/http {/a\         add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
 #sudo wget -q -O /etc/nginx/sites-available/default http://exampleconfig.com/static/raw/nginx/ubuntu20.04/etc/nginx/sites-available/default
 config="/etc/nginx/sites-available/default"
 sudo sh -c "echo 'Hello World!' > /var/www/html/index.nginx-debian.html"
