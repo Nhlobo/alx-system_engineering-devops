@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
-# Configuring HAProxy load balancer
+# install and setup HAProxy on brand new server
+sudo apt-get install -y --no-install-recommends software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.2
+sudo apt update -y
+sudo apt-get install -y haproxy=2.2.\*
 
-# update the package list 
-sudo apt-get -y update
-
-# install required packages
-sudo apt-get -y install software-properties-common
-
-# Add the HAProxy repository and install HAProxy 2.0
-sudo add-apt repository -y ppa:vbernat/haproxy-2.0
-sudo apt-get -y update
-sudo apt-get -y install haproxy
-
-# HAProxy configuration
-balancer="\
-frontend haproxy_balancer
-    bind *:80
-    mode http
-    default_backend webservers
-
-backend webservers
-    balance roundrobin
-    server 467595-web-01 check
-    server 467595-web-02 check
+# configure HAProxy
+WEB01="18.235.248.159"
+WEB02="100.25.117.185"
+CONFIG=\
 "
-# Add your HAProxy configuration to haproxy.cfg
-sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
-sudo echo "$balancer" >> /etc/haproxy/haproxy.cfg
+frontend http
+	bind *:80
+	option forwardfor
+	default_backend web_backend
 
-# Start the HAProxy service
-sudo service haproxy start
+backend web_backend
+	balance roundrobin
+	server web01 $WEB01:80 check
+	server web02 $WEB02:80 check
+"
+
+if [ "$(grep -c $WEB01 /etc/haproxy/haproxy.cfg)" -eq 0 ]; then
+	echo -e "$CONFIG" | sudo tee -a /etc/haproxy/haproxy.cfg
+fi
+
+if [ "$(pgrep -cf haproxy)" -eq 0 ]; then
+	sudo service haproxy start
+else
+	sudo service haproxy restart
+fi
