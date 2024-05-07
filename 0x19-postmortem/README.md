@@ -1,31 +1,9 @@
 0x19. Postmortem
-================
-
-DevOpsSysAdmin
-
--   By Sylvain Kalache
--   Weight: 1
--   Project over - took place from
-
-    Apr 25, 2022
-
-    to
-
-    May 2, 2022
-
-    - you're done with 100% of tasks.
--   Manual QA review was done on
-
-    May 14, 2022 9:15 AM
-
-#### In a nutshell...
-
--   **Manual QA review:** 0.0/13 mandatory & 0.0/1 optional
--   **Altogether:**  **0.0%**
-    -   Mandatory: 0.0%
-    -   Optional: 0.0%
-    -   Calculation:  0.0% + (0.0% * 0.0%)  == **0.0%**
-
+DevOps
+SysAdmin
+ Weight: 1
+ Project will start May 6, 2024 6:00 AM, must end by May 13, 2024 6:00 AM
+ Manual QA review must be done (request it when you are done with the project)
 ### Concepts
 
 *For this project, we expect you to look at this concept:*
