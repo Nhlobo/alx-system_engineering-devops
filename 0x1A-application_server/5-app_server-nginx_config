@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name 18.234.105.167;
+    server_name 18.235.248.159;
     add_header X-Served-By $HOSTNAME;
 
 
